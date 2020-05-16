@@ -1,5 +1,6 @@
 package com.github.malyshgit.bots.discord;
 
+import com.sedmelluq.discord.lavaplayer.player.AudioConfiguration;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 
@@ -23,6 +24,8 @@ public class GuildMusicManager {
      * @param manager Audio player manager to use for creating the player.
      */
     public GuildMusicManager(AudioPlayerManager manager) {
+        manager.getConfiguration().setResamplingQuality(AudioConfiguration.ResamplingQuality.LOW);
+        manager.getConfiguration().setOpusEncodingQuality(5);
         player = manager.createPlayer();
         scheduler = new TrackScheduler(player);
         player.addListener(scheduler);
