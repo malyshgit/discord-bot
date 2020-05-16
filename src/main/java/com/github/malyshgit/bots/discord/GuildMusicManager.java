@@ -24,9 +24,10 @@ public class GuildMusicManager {
      * @param manager Audio player manager to use for creating the player.
      */
     public GuildMusicManager(AudioPlayerManager manager) {
-        manager.getConfiguration().setResamplingQuality(AudioConfiguration.ResamplingQuality.LOW);
-        manager.getConfiguration().setOpusEncodingQuality(5);
+        //manager.getConfiguration().setResamplingQuality(AudioConfiguration.ResamplingQuality.LOW);
+        //manager.getConfiguration().setOpusEncodingQuality(5);
         player = manager.createPlayer();
+        //player.setFrameBufferDuration(500);
         scheduler = new TrackScheduler(player);
         player.addListener(scheduler);
         provider = new MAudioProvider(player);
